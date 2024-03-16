@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple E-commerce Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .product {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+        h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Simple E-commerce Store</h1>
+        <div class="product">
+            <h2>Product 1</h2>
+            <button onclick="buyProduct('Product 1')">Buy</button>
+        </div>
+        <div class="product">
+            <h2>Product 2</h2>
+            <button onclick="buyProduct('Product 2')">Buy</button>
+        </div>
+        <div class="product">
+            <h2>Product 3</h2>
+            <button onclick="buyProduct('Product 3')">Buy</button>
+        </div>
+        <div class="product">
+            <h2>Product 4</h2>
+            <button onclick="buyProduct('Product 4')">Buy</button>
+        </div>
+        <div class="product">
+            <h2>Product 5</h2>
+            <button onclick="buyProduct('Product 5')">Buy</button>
+        </div>
+    </div>
+
+    <!-- JavaScript function for buying products -->
+    <script>
+        function buyProduct(productName) {
+            console.log('Buying product:', productName);
+            fetch('/buy', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Secret-Key': 'assign' 
+                },
+                body: JSON.stringify({ product: productName })
+            }).then(response => response.json())
+            .then(data => alert(data.message));
+        }
+    </script>
+</body>
+</html>
