@@ -2,9 +2,9 @@ from fastapi import FastAPI, HTTPException, Header, Query, Body
 from fastapi.responses import HTMLResponse
 from pymongo import MongoClient
 
-MONGO_URI = "mongodb+srv://week8:weekeight@week8.sncguyo.mongodb.net/"
-DATABASE_NAME = "week8"
-SECRET_KEY = "assign"
+MONGO_URI = "mongodb+srv://mcassoria:carlossoria40@cluster0.omh8hwv.mongodb.net/"
+DATABASE_NAME = "record"
+SECRET_KEY = "carlsoria"
 
 app = FastAPI()
 client = MongoClient(MONGO_URI)
