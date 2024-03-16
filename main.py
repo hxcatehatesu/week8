@@ -41,3 +41,8 @@ async def buy_product(product_info: dict = Body(...), x_secret_key: str = Header
         return {"message": f"Successfully purchased {productName}"}
     except Exception as e:
         raise HTTPException(status_code=500, detail="Internal Server Error")
+    
+import uvicorn
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
